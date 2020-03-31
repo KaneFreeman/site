@@ -50,13 +50,7 @@ export default factory(function App() {
 					id="learn"
 					renderer={({ params, router }) => {
 						const url = router.link('learn', router.currentParams);
-						return (
-							<Learn
-								url={url}
-								guideName={params.guide || 'overview'}
-								pageName={params.page || 'introduction'}
-							/>
-						);
+						return <Learn url={url} guideName={params.guide || 'overview'} />;
 					}}
 				/>
 			</div>

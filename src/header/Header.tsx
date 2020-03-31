@@ -66,11 +66,7 @@ export default factory(function Header({ middleware: { theme, icache, i18n } }) 
 									}}
 									to={item.toLowerCase()}
 									matchParams={{}}
-									params={
-										item.toLowerCase() === 'learn'
-											? { guide: 'overview', page: 'introduction' }
-											: {}
-									}
+									params={item.toLowerCase() === 'learn' ? { guide: 'overview' } : {}}
 									activeClasses={[themedCss.selected]}
 								>
 									{item}

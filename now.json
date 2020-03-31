@@ -18,6 +18,7 @@
 		{"src": "/blog/2018/07/27/2018-07-27-Dojo-version-3-release/", "headers": { "Location": "/blog/dojo-version-3-release"}, "status": 301},
 		{"src": "/blog/2018/09/13/2018-09-13-Building-PWA-Dojo/", "headers": { "Location": "/blog/building-pwa-dojo"}, "status": 301},
 		{"src": "/blog/2018/10/15/2018-10-15-Version-4-Dojo/", "headers": { "Location": "/blog/version-4-dojo"}, "status": 301},
-		{"src": "/blog/2019/01/29/2019-01-29-Version-5-Dojo/", "headers": { "Location": "/blog/version-5-dojo"}, "status": 301}
+		{"src": "/blog/2019/01/29/2019-01-29-Version-5-Dojo/", "headers": { "Location": "/blog/version-5-dojo"}, "status": 301},
+		{"src": "/learn/(?<guide>[^/]*)/(?<page>[^/]*)", "headers": { "Location": "/learn/$1#$2"}, "status": 301}
 	]
 }

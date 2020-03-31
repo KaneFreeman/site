@@ -45,13 +45,5 @@ export default [
 		defaultParams: {
 			guide: 'overview'
 		}
-	},
-	{
-		path: 'learn/{guide}/{page}',
-		outlet: 'learn',
-		defaultParams: {
-			guide: 'overview',
-			page: 'introduction'
-		}
 	}
 ] as RouteConfig[];

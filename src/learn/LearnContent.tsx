@@ -9,7 +9,6 @@ import * as css from './Learn.m.css';
 
 interface LearnContentProperties {
 	path: string;
-	page: string;
 	repo: string;
 	branch: string;
 	url?: string;
@@ -20,9 +19,9 @@ interface LearnContentProperties {
 const factory = create({ theme, block }).properties<LearnContentProperties>();
 
 export default factory(function LearnContent({ properties, middleware: { theme, block } }) {
-	const { path, page, repo, branch, url, language, locale } = properties();
+	const { path, repo, branch, url, language, locale } = properties();
 	const themedCss = theme.classes(css);
-	const content = block(getContent)({ path, page, repo, branch, language, locale });
+	const content = block(getContent)({ path, repo, branch, language, locale });
 	url &&
 		decorate(
 			content,

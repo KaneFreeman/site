@@ -8,13 +8,11 @@ import Menu from '../menu/Menu';
 import { getLanguageFromLocale } from '../util/language';
 
 import LearnContent from './LearnContent';
-import getSections from './sections.block';
 
 import * as css from './Learn.m.css';
 
 interface LearnProperties {
 	guideName: string;
-	pageName: string;
 	url?: string;
 	repo?: string;
 	branch?: string;
@@ -23,7 +21,7 @@ interface LearnProperties {
 const factory = create({ theme, i18n, block }).properties<LearnProperties>();
 
 export default factory(function Learn({ properties, middleware: { theme, i18n, block } }) {
-	const { guideName, pageName, url, repo = GUIDES_DEFAULT_REPO, branch = GUIDES_DEFAULT_BRANCH } = properties();
+	const { guideName, url, repo = GUIDES_DEFAULT_REPO, branch = GUIDES_DEFAULT_BRANCH } = properties();
 	const themedCss = theme.classes(css);
 	const path = `docs/:locale:/${guideName === 'overview' ? 'outline' : guideName.toLowerCase()}`;
 
@@ -34,8 +32,6 @@ export default factory(function Learn({ properties, middleware: { theme, i18n, b
 		language = getLanguageFromLocale(localeData.locale);
 		locale = localeData.locale;
 	}
-
-	const sections = block(getSections)({ branch, path, page: 'supplemental', repo, language, locale }) || [];
 
 	return (
 		<div classes={themedCss.root}>
@@ -51,32 +47,18 @@ export default factory(function Learn({ properties, middleware: { theme, i18n, b
 						to: 'learn',
 						params: {
 							guide: guideName,
-							page: 'introduction',
 							repo,
 							branch
 						},
 						matchParams: { guide: guideName }
 					};
 				})}
-				subLinks={[
-					{
-						label: 'Introduction',
-						to: 'learn',
-						params: { page: 'introduction' }
-					},
-					...sections.map(({ param, title }) => ({
-						label: title,
-						to: 'learn',
-						params: { page: param }
-					}))
-				]}
 			/>
 			<main classes={themedCss.main}>
 				<LearnContent
 					key="content"
 					url={url}
 					repo={repo}
-					page={pageName}
 					path={path}
 					branch={branch}
 					language={language}

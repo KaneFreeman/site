@@ -59,7 +59,7 @@ describe('Header', () => {
 							onClick={noop}
 							to="learn"
 							matchParams={{}}
-							params={{ guide: 'overview', page: 'introduction' }}
+							params={{ guide: 'overview' }}
 							activeClasses={[css.selected]}
 						>
 							Learn

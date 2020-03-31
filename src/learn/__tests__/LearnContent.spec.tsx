@@ -40,7 +40,6 @@ describe('LearnContent', () => {
 					key="content"
 					url="url/to/page"
 					repo="dojo/framework"
-					page="introduction"
 					path="docs/:locale:/outline"
 					branch="master"
 					language="en"

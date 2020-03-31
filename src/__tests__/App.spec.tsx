@@ -54,11 +54,7 @@ describe('App', () => {
 					)}
 				/>
 				<Outlet key="roadmap" id="roadmap" renderer={() => <Roadmap />} />
-				<Outlet
-					key="learn"
-					id="learn"
-					renderer={({ params }) => <Learn guideName={params.guide} pageName={params.page} />}
-				/>
+				<Outlet key="learn" id="learn" renderer={({ params }) => <Learn guideName={params.guide} />} />
 			</div>
 			<Footer />
 		</div>
@@ -106,41 +102,26 @@ describe('App', () => {
 		{ outlet: 'roadmap', content: <Roadmap /> },
 		{
 			outlet: 'learn',
-			content: <Learn url="url/a-guide/a-page" guideName="a-guide" pageName="a-page" />,
-			args: [
-				{
-					params: {
-						guide: 'a-guide',
-						page: 'a-page'
-					},
-					router: {
-						link: () => 'url/a-guide/a-page'
-					}
-				}
-			]
-		},
-		{
-			outlet: 'learn',
-			content: <Learn url="url/a-guide/introduction" guideName="a-guide" pageName="introduction" />,
+			content: <Learn url="url/a-guide" guideName="a-guide" />,
 			args: [
 				{
 					params: {
 						guide: 'a-guide'
 					},
 					router: {
-						link: () => 'url/a-guide/introduction'
+						link: () => 'url/a-guide'
 					}
 				}
 			]
 		},
 		{
 			outlet: 'learn',
-			content: <Learn url="url/overview/introduction" guideName="overview" pageName="introduction" />,
+			content: <Learn url="url/overview" guideName="overview" />,
 			args: [
 				{
 					params: {},
 					router: {
-						link: () => 'url/overview/introduction'
+						link: () => 'url/overview'
 					}
 				}
 			]
